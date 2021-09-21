@@ -3,15 +3,14 @@ title: "Module2 - R Markdown Document 1"
 author: "Pablo González"
 date: "9/20/2021"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
   word_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
 
 # This is a level one header
 
@@ -23,15 +22,12 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 Here is a link to [GOOGLE](http://google.com.mx)
 
-```
-2+2
-mean(c(1,2,3,4))
-```
+    2+2
+    mean(c(1,2,3,4))
 
-> This is a blockquote. This paragraph
-> has two lines.
+> This is a blockquote. This paragraph has two lines.
 
->   this is another block
+> this is another block
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
@@ -54,10 +50,31 @@ plot(pressure)
 ```
 
 ## Insert Tables
+
 ```{r, echo=FALSE}
 knitr::kable(head(cars), caption = "Top 6 rows of Cars Dataset")
 ```
 
 ## Insert and ecuation
 
-$$ Y = \beta_0 + \beta_1x $$
+$$ Y = \beta_0 + \beta_1x $$ 
+
+## Insert Images
+
+![sunstar](sunstar.png)
+
+## Insert an Animated GIT and video
+
+
+![sunstar](sunstar/sunstar.gif)
+
+![sunstar](sunstar/sunstar.mp4)
+
+## Insert text with footnote
+
+Here is footnote reference [^1] and another [^longnote]
+
+Here is an inline footnote ^[inline notes are easier to write, since you don't have to pick an identified and move downl to type the note]
+
+[^1]: Here is the footnote
+[^longnote]: Here's one with multiple blocks.
