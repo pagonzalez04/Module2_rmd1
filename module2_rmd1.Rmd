@@ -3,14 +3,10 @@ title: "Module2 - R Markdown Document 1"
 author: "Pablo González"
 date: "9/20/2021"
 output:
-  pdf_document: default
   html_document: default
   word_document: default
+  pdf_document: default
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 # This is a level one header
 
@@ -66,9 +62,6 @@ $$ Y = \beta_0 + \beta_1x $$
 ## Insert an Animated GIT and video
 
 
-![sunstar](sunstar/sunstar.gif)
-
-![sunstar](sunstar/sunstar.mp4)
 
 ## Insert text with footnote
 
@@ -78,3 +71,27 @@ Here is an inline footnote ^[inline notes are easier to write, since you don't h
 
 [^1]: Here is the footnote
 [^longnote]: Here's one with multiple blocks.
+
+## Python code
+
+```{r, setup}
+library(reticulate)
+matplotlib <- import("matplotlib")
+matplotlib$use("Agg", force = TRUE)
+plt <- import("matplotlib.pyplot")
+```
+
+
+```{python}
+# prints the python configuration
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv('intalaciones.csv', parse_dates=['fechaServicio'])
+df2 = df.set_index('fechaServicio').resample('W').count()['numeroServicio'].rolling(4).mean()
+```
+
+```{r}
+plot(py$df2, type = "o")
+```
+
+
